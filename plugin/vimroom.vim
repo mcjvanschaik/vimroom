@@ -7,6 +7,7 @@
 "Version:     0.7
 "Last Change: 2010-10-31
 "License:     BSD <../LICENSE.markdown>
+"Update:      My customized version that strips distracting elements from GUI
 "==============================================================================
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -165,9 +166,16 @@ function! <SID>VimroomToggle()
         if s:save_relativenumber != 0
             set relativenumber
         endif
+        if exists("g:auto_save_loaded")
+            call AutoSaveToggle()
+        endif
         " Remove wrapping and linebreaks
         set nowrap
         set nolinebreak
+        set guioptions+=m
+        set guioptions+=T
+        set guioptions+=r
+        set guioptions+=R
     else
         if s:is_the_screen_wide_enough()
             let s:active = 1
@@ -221,7 +229,9 @@ function! <SID>VimroomToggle()
             if s:save_scrolloff != ""
                 exec( "set scrolloff=".g:vimroom_scrolloff )
             endif
-
+            if exists("g:auto_save_loaded")
+                call AutoSaveToggle()
+            endif
             " Setup navigation over "display lines", not "logical lines" if
             " mappings for the navigation keys don't already exist.
             if g:vimroom_navigation_keys
@@ -241,6 +251,12 @@ function! <SID>VimroomToggle()
             if has('gui_running')
                 let l:highlightbgcolor = "guibg=" . g:vimroom_guibackground
                 let l:highlightfgbgcolor = "guifg=" . g:vimroom_guibackground . " " . l:highlightbgcolor
+                set guioptions-=m
+                set guioptions-=T
+                set guioptions-=l
+                set guioptions-=r
+                set guioptions-=L
+                set guioptions-=R
             else
                 let l:highlightbgcolor = "ctermbg=" . g:vimroom_ctermbackground
                 let l:highlightfgbgcolor = "ctermfg=" . g:vimroom_ctermbackground . " " . l:highlightbgcolor
