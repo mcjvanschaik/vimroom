@@ -1,4 +1,4 @@
-Vimroom
+VIMROOM
 =======
 
 This is my personal fork of [Vimroom by Mike West](https://github.com/mikewest/vimroom). 
