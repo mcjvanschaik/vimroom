@@ -53,4 +53,5 @@ I do recommend automatically hiding the taskbar at the bottom of the screen. Get
 
 Checkout a screenshot of my entire desktop using Vimroom with gvimfullscreen_win32
 
-![this link](https://drive.google.com/file/d/0BxgOSxYtujxhZmNuMGh0REdRajQ/edit?usp=sharing "full screen")
+![full screen](https://drive.google.com/file/d/0BxgOSxYtujxhZmNuMGh0REdRajQ/edit?usp=sharing "full screen")
+or follow this [link](https://drive.google.com/file/d/0BxgOSxYtujxhZmNuMGh0REdRajQ/edit?usp=sharing)
