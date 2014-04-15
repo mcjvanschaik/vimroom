@@ -42,3 +42,16 @@ Preview Plus](https://chrome.google.com/webstore/detail/febilkbfcbhebfnokafefeac
 This extension can convert a markdown-file in the browser and has a
 auto-reload function. This makes it very easy to get a preview of my file
 while writing it with the auto-save on.
+
+## Really Full Screen for GVIM 32-bits
+
+Wow, you can get a full screen Vim using a DLL made by Derek Mcloughlin. Copy the DLL to 
+the directory that holds gvim.exe and call the FullScreenToggle function by invoking the DLL. 
+I do recommend automatically hiding the taskbar at the bottom of the screen. Get it at github:
+
+- [Github] (https://github.com/derekmcloughlin/gvimfullscreen_win32)
+
+Checkout a screenshot of my entire desktop using Vimroom with gvimfullscreen_win32
+
+![full screen](https://drive.google.com/file/d/0BxgOSxYtujxhZmNuMGh0REdRajQ/edit?usp=sharing "full screen")
+or follow this [link](https://drive.google.com/file/d/0BxgOSxYtujxhZmNuMGh0REdRajQ/edit?usp=sharing)

@@ -176,6 +176,7 @@ function! <SID>VimroomToggle()
         set guioptions+=T
         set guioptions+=r
         set guioptions+=R
+        call libcall("gvimfullscreen.dll","ToggleFullScreen", 0)
     else
         if s:is_the_screen_wide_enough()
             let s:active = 1
@@ -257,6 +258,7 @@ function! <SID>VimroomToggle()
                 set guioptions-=r
                 set guioptions-=L
                 set guioptions-=R
+                call libcall("gvimfullscreen.dll","ToggleFullScreen", 0)
             else
                 let l:highlightbgcolor = "ctermbg=" . g:vimroom_ctermbackground
                 let l:highlightfgbgcolor = "ctermfg=" . g:vimroom_ctermbackground . " " . l:highlightbgcolor
