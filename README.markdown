@@ -1,4 +1,4 @@
-VIMROOM
+Vimroom
 =======
 
 This is my personal fork of [Vimroom by Mike West](https://github.com/mikewest/vimroom). 
@@ -53,5 +53,5 @@ I do recommend automatically hiding the taskbar at the bottom of the screen. Get
 
 Checkout a screenshot of my entire desktop using Vimroom with gvimfullscreen_win32
 
-![full screen](https://drive.google.com/file/d/0BxgOSxYtujxhZmNuMGh0REdRajQ/edit?usp=sharing "full screen")
+![full screen](http://https://raw.githubusercontent.com/mcjvanschaik/vimroom/master/fullscreenvimroom.png)
 or follow this [link](https://drive.google.com/file/d/0BxgOSxYtujxhZmNuMGh0REdRajQ/edit?usp=sharing)
