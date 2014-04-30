@@ -20,11 +20,16 @@ I also set some settings for plain text authoring that I like.
 ### Customizations
 
 - Remove GUIoptions to get rid of menu's, scrollbars and toolbar
-- If available set Autosave 
+- Apply 100% full screen VIM using gvimfullscreen_win32.dll
 
-## Get plugins
+## Requirements
 
-*Vimroom* is available in several locations. You can get the plugin from:
+- 32-bit Vim version 7.3 or higher
+- [gvimfullscreen.dll] (https://github.com/derekmcloughlin/gvimfullscreen_win32)
+
+## useful plugins
+
+The original *Vimroom* is available in several locations. You can get the plugin from:
 
 - the [creator's website](http://projects.mikewest.org/vimroom/)
 - [github.com](https://github.com/mikewest/vimroom)
@@ -43,15 +48,10 @@ This extension can convert a markdown-file in the browser and has a
 auto-reload function. This makes it very easy to get a preview of my file
 while writing it with the auto-save on.
 
-## Really Full Screen for GVIM 32-bits
 
-Wow, you can get a full screen Vim using a DLL made by Derek Mcloughlin. Copy the DLL to 
-the directory that holds gvim.exe and call the FullScreenToggle function by invoking the DLL. 
-I do recommend automatically hiding the taskbar at the bottom of the screen. Get it at github:
-
-- [Github] (https://github.com/derekmcloughlin/gvimfullscreen_win32)
+## Screenshot 
 
 Checkout a screenshot of my entire desktop using Vimroom with gvimfullscreen_win32
 
-![full screen](http://https://raw.githubusercontent.com/mcjvanschaik/vimroom/master/fullscreenvimroom.png)
+![full screen](https://github.com/mcjvanschaik/vimroom/raw/master/fullscreenvimroom.png "fullscreen")
 or follow this [link](https://drive.google.com/file/d/0BxgOSxYtujxhZmNuMGh0REdRajQ/edit?usp=sharing)
