@@ -166,17 +166,20 @@ function! <SID>VimroomToggle()
         if s:save_relativenumber != 0
             set relativenumber
         endif
-        if exists("g:auto_save_loaded")
-            call AutoSaveToggle()
-        endif
         " Remove wrapping and linebreaks
         set nowrap
         set nolinebreak
-        set guioptions+=m
-        set guioptions+=T
-        set guioptions+=r
-        set guioptions+=R
-        call libcall("gvimfullscreen.dll","ToggleFullScreen", 0)
+        if has("win32")
+            " When in Windows manage guioptions and gvimfullscreen
+            set guioptions+=m   " turn on menu
+            set guioptions+=T   " turn on Toolbar
+            set guioptions-=L   " turn on scrollbar left in vertical split
+            set guioptions-=R   " turn on scrollbar right in vertical spli
+            " if gvimfullscreen.dll exists in the runtimepath, call it
+            if filereadable(globpath(&rtp, "gvimfullscreen.dll"))
+                call libcall("gvimfullscreen.dll","ToggleFullScreen", 0)
+            endif
+        endif
     else
         if s:is_the_screen_wide_enough()
             let s:active = 1
@@ -230,9 +233,6 @@ function! <SID>VimroomToggle()
             if s:save_scrolloff != ""
                 exec( "set scrolloff=".g:vimroom_scrolloff )
             endif
-            if exists("g:auto_save_loaded")
-                call AutoSaveToggle()
-            endif
             " Setup navigation over "display lines", not "logical lines" if
             " mappings for the navigation keys don't already exist.
             if g:vimroom_navigation_keys
@@ -252,16 +252,22 @@ function! <SID>VimroomToggle()
             if has('gui_running')
                 let l:highlightbgcolor = "guibg=" . g:vimroom_guibackground
                 let l:highlightfgbgcolor = "guifg=" . g:vimroom_guibackground . " " . l:highlightbgcolor
-                set guioptions-=m
-                set guioptions-=T
-                set guioptions-=l
-                set guioptions-=r
-                set guioptions-=L
-                set guioptions-=R
-                call libcall("gvimfullscreen.dll","ToggleFullScreen", 0)
             else
                 let l:highlightbgcolor = "ctermbg=" . g:vimroom_ctermbackground
                 let l:highlightfgbgcolor = "ctermfg=" . g:vimroom_ctermbackground . " " . l:highlightbgcolor
+            endif
+            if has('win32')
+                " when in Windows we have more to clean up
+                set guioptions-=m   " remove menu
+                set guioptions-=T   " remove toolbar
+                set guioptions-=l   " remove left scrollbar
+                set guioptions-=r   " remove right scrollbar
+                set guioptions-=L   " no scrollbar left in vertical split
+                set guioptions-=R   " no scrollbar right in vertical spli
+                " If gvimfullscreen exists call it
+                if filereadable(globpath(&rtp, "gvimfullscreen.dll"))
+                    call libcall("gvimfullscreen.dll","ToggleFullScreen", 0)
+                endif
             endif
             exec( "hi Normal " . l:highlightbgcolor )
             exec( "hi VertSplit " . l:highlightfgbgcolor )
